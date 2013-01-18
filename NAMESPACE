@@ -1,11 +1,16 @@
 importFrom("graph", ftM2graphNEL)
+importFrom(AnnotationDbi, cols, keys, keytypes, select)
+
 importMethodsFrom("graph", edges, nodes, subGraph, edgeNames)
 importMethodsFrom("RBGL", bfs)
 importClassesFrom("graph", graphNEL)
+
 exportClasses("OrganismDb")
+
 exportMethods("cols",
               "keys",
               "keytypes",
               "select"
               )
+
 export("makeOrganismPackage")
