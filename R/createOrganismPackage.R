@@ -397,13 +397,13 @@ makeOrganismDbFromUCSC <- function(genome="hg19",
 
 ## TODO: make one of these for BiomaRt.
 
-makeOrganismDbFromBiomart <- function(biomart="ensembl",
+makeOrganismDbFromBiomart <- function(biomart="ENSEMBL_MART_ENSEMBL",
                                       dataset="hsapiens_gene_ensembl",
                                       transcript_ids=NULL,
                                       circ_seqs=DEFAULT_CIRC_SEQS,
                                       filters="",
                                       id_prefix="ensembl_",
-                                      host="www.biomart.org",
+                                      host="www.ensembl.org",
                                       port=80,
                                       miRBaseBuild=NA,
                                       keytype="ENSEMBL"){
@@ -420,55 +420,6 @@ makeOrganismDbFromBiomart <- function(biomart="ensembl",
                                 miRBaseBuild=miRBaseBuild)
     makeOrganismDbFromTxDb(txdb, keytype=keytype)
 }
-
-
-
-## ## Usage/testing:
-## library(OrganismDbi)
-## transcript_ids <- c(
-##     "ENST00000013894",
-##     "ENST00000268655",
-##     "ENST00000313243",
-##     "ENST00000435657",
-##     "ENST00000384428",
-##     "ENST00000478783"
-## )
-## ODb <- OrganismDbi:::makeOrganismDbFromBiomart(biomart="ensembl",
-##                                             dataset="hsapiens_gene_ensembl",
-##                                             transcript_ids=transcript_ids,
-##                                             circ_seqs=DEFAULT_CIRC_SEQS,
-##                                             filters="",
-##                                             id_prefix="ensembl_",
-##                                             host="www.biomart.org",
-##                                             port=80,
-##                                             miRBaseBuild=NA)
-
-## TxDb.Hsapiens.BioMart.ensembl.GRCh38.p2
-
-
-## PROBLEM: OrganismDbi:::.extractDbFiles(gd, deps) requires (strictly) that all objects be available as files somewhere (no exceptions allowed)
-## This means that when I get to this stage, with biomaRt, it fails because there is not a TxDb on disc...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ################################################################################
 ################################################################################
