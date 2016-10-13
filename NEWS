@@ -1,3 +1,17 @@
+CHANGES IN VERSION 1.16.0
+------------------------
+
+NEW FEATURES
+
+    o add check for missing OrgDb package in .taxIdToOrgDb()
+
+    o add 'orgdb' argument to makeOrganismDbFromBiomart()
+
+MODIFICATIONS
+
+    o modify error message in .taxIdToOrgDb()
+
+
 CHANGES IN VERSION 1.14.0
 ------------------------
 
