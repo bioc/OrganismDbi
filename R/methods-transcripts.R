@@ -126,38 +126,26 @@ setReplaceMethod("TxDb", "OrganismDb", function(x, value) .updateTxDb(x, value))
 ## ALL of the columns in a data.frame (meta) except for the one that
 ## was the basis for the special factor (avoidID)
 .compressMetadata <- function(f, meta, avoidID){
-    if(!is.null(avoidID)){
-        columns <- meta[,!colnames(meta) %in% avoidID, drop=FALSE]
-    }else{
-        columns <- meta
-    }
-    ## call splitAsList (using factor) on all columns except avoidId
-    res <- lapply(columns, splitAsList, f) ## fast 
-    ## call unique on all columns
-    res <- lapply(res, unique)  ## slower
-    as(res, "DataFrame") 
+    meta <- meta[, !colnames(meta) %in% avoidID, drop=FALSE]
+    meta <- lapply(meta, function(column, f) unique(splitAsList(column, f)), f)
+    DataFrame(meta, row.names=NULL)
 }
 
 ## This helper does book keeping that is relevant to my situation here.
 .combineMetadata <- function(rngs, meta, avoidID, joinID, columns){
-    ## make a special factor
-    f <- factor(meta[[avoidID]],levels=as.character(mcols(rngs)[[joinID]]))
     ## compress the metadata by splitting according to f
-    if(avoidID %in% columns){ ## don't avoid the avoidID        
-        res <- .compressMetadata(f, meta, avoidID=NULL)
-    }else{ ## avoid the avoidID (most common case)
-        res <- .compressMetadata(f, meta, avoidID)
-    }
-    ## attach to mcols values. from before.
-    if(dim(mcols(rngs))[1] == dim(res)[1]){
-        res <- c(mcols(rngs),res)
-        ## throw out joining IDs
-        res <- res[!(colnames(res) %in%
-                     c("tx_id","exon_id","cds_id","gene_id"))]
-        return(res)
-    }else{
-        stop("Ranges and annotations retrieved are not of matching lengths.")
-    }
+    joinValue <- as.character(mcols(rngs)[[joinID]])
+    f <- factor(meta[[avoidID]], levels=unique(joinValue))
+    if (anyNA(f))
+        stop("not all annotations have matching ranges")
+
+    if (avoidID %in% columns)           # don't avoid the avoidID
+        avoidID <- NULL
+
+    res <- .compressMetadata(f, meta, avoidID)
+    ridx <- match(joinValue, levels(f))
+    res <- c(mcols(rngs), res[ridx, , drop=FALSE])
+    res[!(colnames(res) %in% c("tx_id","exon_id","cds_id","gene_id"))]
 }
 
 
