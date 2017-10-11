@@ -14,7 +14,7 @@ importMethodsFrom("graph", edgeNames, edges, nodes, show, subGraph,
 
 importMethodsFrom("RBGL", bfs)
 
-importMethodsFrom("RSQLite", dbGetQuery)
+importMethodsFrom("DBI", dbGetQuery)
 
 importFrom("Biobase", createPackage)
 
