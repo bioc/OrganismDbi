@@ -532,7 +532,7 @@ setMethod("selectByRanges", "MultiDb",
 ## uniqueIdx = !duplicated(dfRes)
 ## results <- results[uniqueIdx]
 
-## But then: we would still have to deal with the fact that we have to 'merge' overlapping Ranges (and keep the metadata)...
+## But then: we would still have to deal with the fact that we have to 'merge' overlapping ranges (and keep the metadata)...
 
 
 ## ALTERNATIVELY: I *could* implement this by just using the transcript centered strategy that I used above (for UTRs/introns), but applying it to 'everything', THEN merging all the tx centered metadata into a tx ID'd list and then overlapping as the last step.

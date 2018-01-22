@@ -206,13 +206,13 @@
     More precisely: it's turned into a factor (or factor-\link[S4Vectors]{Rle})
     that has the "standard strand levels" (this is done by calling the
     \code{\link[BiocGenerics]{strand}} function on it). Then it's recycled
-    to the length of \link[IRanges]{RangesList} object \code{transcripts}
-    if needed. In the resulting object, the i-th element is interpreted
-    as the strand of all the exons in the i-th transcript.
+    to the length of \link[IRanges]{IntegerRangesList} object
+    \code{transcripts} if needed. In the resulting object, the i-th element
+    is interpreted as the strand of all the exons in the i-th transcript.
 
     \code{strand} can also be a list-like object, in which case it indicates
     the strand of each exon, individually. Thus it must have the same
-    \emph{shape} as \link[IRanges]{RangesList} object \code{transcripts}
+    \emph{shape} as \link[IRanges]{IntegerRangesList} object \code{transcripts}
     (i.e. same length plus \code{strand[[i]]} must have the same length
     as \code{transcripts[[i]]} for all \code{i}).
 
