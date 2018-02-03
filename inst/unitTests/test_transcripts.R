@@ -73,7 +73,7 @@ test_cds <- function(){
 test_transcriptsBy <- function(){
     library(Homo.sapiens);h=Homo.sapiens;by="gene";cols = c("GENENAME","SYMBOL")
     res <- transcriptsBy(h, by="gene", cols)    
-    checkTrue(class(res) == "GRangesList")
+    checkTrue(class(res) == "CompressedGRangesList")
     checkTrue(length(res) > 20000)
     ## check inner mcols
     checkTrue(all(colnames(mcols(res[[1]])) %in%
@@ -85,7 +85,7 @@ test_transcriptsBy <- function(){
     ## extra check for case where we only have one field.
     cols = c("SYMBOL")
     res2 <- transcriptsBy(h, by="gene", cols)
-    checkTrue(class(res) == "GRangesList")
+    checkTrue(class(res) == "CompressedGRangesList")
     checkTrue(length(res) > 20000)
     ## check inner mcols
     checkTrue(all(colnames(mcols(res2[[1]])) %in%
@@ -100,7 +100,7 @@ test_exonsBy <- function(){
     library(Homo.sapiens);h=Homo.sapiens;by="gene";cols = c("GENENAME","SYMBOL")
     res <- exonsBy(h, by="gene", cols)
     ## TODO: look more closely at this one.  The metadata looks off...
-    checkTrue(class(res) == "GRangesList")
+    checkTrue(class(res) == "CompressedGRangesList")
     checkTrue(length(res) > 20000) 
     checkTrue(all(colnames(mcols(res)) %in%
                   c("GENENAME","SYMBOL")))
@@ -109,7 +109,7 @@ test_exonsBy <- function(){
 test_cdsBy <- function(){
     library(Homo.sapiens);h=Homo.sapiens;by="gene";cols = c("GENENAME","SYMBOL")
     res <- cdsBy(h, by="gene", cols)
-    checkTrue(class(res) == "GRangesList")
+    checkTrue(class(res) == "CompressedGRangesList")
     checkTrue(length(res) > 19000)
     checkTrue(all(colnames(mcols(res)) %in%
                   c("GENENAME","SYMBOL")))
@@ -131,7 +131,7 @@ test_rangeMethods_for_JoinFailures <- function(){
     
     res <- transcriptsBy(h, by="gene", columns=cols)
     checkTrue("TXID" %in% names(mcols(res[[1]])))
-    checkTrue(class(res) == "GRangesList")
+    checkTrue(class(res) == "CompressedGRangesList")
     checkTrue(length(res) > 10000)  ## large
 }
 

@@ -28,7 +28,7 @@ test_promoters <- function(){
 test_threeUTRsByTranscript <- function(){
     res <- threeUTRsByTranscript(x)
     checkTrue(length(res) > 1)
-    checkTrue(class(res) == "GRangesList")    
+    checkTrue(class(res) == "CompressedGRangesList")
 }
 
 
@@ -75,24 +75,24 @@ test_extractUpstreamSeqs <- function(){
 test_intronsByTranscript <- function(){
     res <- intronsByTranscript(x)
     checkTrue(length(res) > 1)
-    checkTrue(class(res) == "GRangesList")    
+    checkTrue(class(res) == "CompressedGRangesList")
 }
 
 test_fiveUTRsByTranscript <- function(){
     res <- fiveUTRsByTranscript(x)
     checkTrue(length(res) > 1)
-    checkTrue(class(res) == "GRangesList")    
+    checkTrue(class(res) == "CompressedGRangesList")
 }
 
 test_isActiveSeq <- function(){
     ## getter works
-    res <- isActiveSeq(x) 
+    res <- isActiveSeq(x)
     checkTrue(length(res) > 1)
     checkTrue(class(res) == "logical")
     checkTrue(all(res) == "TRUE")
     ## and check setter works
     isActiveSeq(x)[seqlevels(x)] <- FALSE
-    res <- isActiveSeq(x) 
+    res <- isActiveSeq(x)
     checkTrue(length(res) > 1)
     checkTrue(class(res) == "logical")
     checkTrue(all(res) == "FALSE")
