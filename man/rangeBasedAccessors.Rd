@@ -71,7 +71,7 @@
               includeTranscripts=TRUE, ...) 
 \S4method{microRNAs}{MultiDb}(x)
 \S4method{tRNAs}{MultiDb}(x)
-\S4method{promoters}{MultiDb}(x, upstream=2000, downstream=200, ...)
+\S4method{promoters}{MultiDb}(x, upstream=2000, downstream=200, use.names=TRUE, ...)
 
 \S4method{distance}{GenomicRanges,MultiDb}(x, y, ignore.strand=FALSE,
     ..., id, type=c("gene", "tx", "exon", "cds"))

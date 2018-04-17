@@ -79,6 +79,7 @@ makeOrganismDbFromUCSC(
 \examples{
 ## Display the list of genomes available at UCSC:
 library(rtracklayer)
+library(RMariaDB)
 ucscGenomes()[ , "db"]
 
 ## Display the list of tables supported by makeOrganismDbFromUCSC():
