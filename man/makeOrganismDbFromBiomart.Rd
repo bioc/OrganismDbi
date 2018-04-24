@@ -157,13 +157,14 @@ odb  # note that these annotations match the GRCh38 genome assembly
 ## Now what if we want to use another mirror?  We might make use of the
 ## new host argument.  But wait!  If we use biomaRt, we can see that
 ## this host has named the mart differently!
-listMarts(host="uswest.ensembl.org")
+listMarts(host="useast.ensembl.org")
 ## Therefore we must also change the name passed into the "mart"
 ## argument thusly:
 try(
     odb <- makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
                                      transcript_ids=transcript_ids,
-                                     host="uswest.ensembl.org")	    
+                                     host="useast.ensembl.org",
+                                     ensemblRedirect = FALSE)
 )
 odb
 }
