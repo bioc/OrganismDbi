@@ -163,8 +163,7 @@ listMarts(host="useast.ensembl.org")
 try(
     odb <- makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
                                      transcript_ids=transcript_ids,
-                                     host="useast.ensembl.org",
-                                     ensemblRedirect = FALSE)
+                                     host="useast.ensembl.org")
 )
 odb
 }
