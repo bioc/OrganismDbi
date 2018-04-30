@@ -77,6 +77,7 @@ makeOrganismDbFromUCSC(
 }
 
 \examples{
+\dontrun{
 ## Display the list of genomes available at UCSC:
 library(rtracklayer)
 library(RMariaDB)
@@ -103,4 +104,5 @@ transcript_ids <- c(
 odb2 <- makeOrganismDbFromUCSC(genome="mm9", tablename="knownGene",
                           transcript_ids=transcript_ids)
 odb2
+}
 }
