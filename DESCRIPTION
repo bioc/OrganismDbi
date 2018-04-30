@@ -6,7 +6,8 @@ Description: The package enables a simple unified interface to several
 	advantage of the fact that each of these packages implements a 
 	select methods.
 Version: 1.21.4
-Author: Marc Carlson, Herve Pages, Martin Morgan, Valerie Obenchain
+Encoding: UTF-8
+Author: Marc Carlson, Hervé Pagès, Martin Morgan, Valerie Obenchain
 Maintainer: Biocore Data Team <maintainer@bioconductor.org>
 Depends: R (>= 2.14.0), methods, BiocGenerics (>= 0.15.10),
         AnnotationDbi (>= 1.33.15), GenomicFeatures (>= 1.23.31)

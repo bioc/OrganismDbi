@@ -112,7 +112,7 @@ makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
 \value{A \link{OrganismDb} object.}
 
 \author{
-  M. Carlson and H. Pages
+  M. Carlson
 }
 
 \seealso{

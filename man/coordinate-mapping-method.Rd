@@ -102,7 +102,7 @@
   }
 }
 
-\author{V. Obenchain, M. Lawrence and H. Pages; ported to work with
+\author{V. Obenchain, M. Lawrence and H. Pagès; ported to work with
   OrganismDbi by Marc Carlson}
 
 \examples{

@@ -54,7 +54,7 @@ makeOrganismDbFromUCSC(
 \value{A \link{OrganismDb} object.}
 
 \author{
-  M. Carlson and H. Pages
+  M. Carlson
 }
 
 \seealso{
