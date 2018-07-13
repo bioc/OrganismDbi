@@ -18,7 +18,7 @@ importMethodsFrom("DBI", dbGetQuery)
 
 importFrom("Biobase", createPackage)
 
-importFrom("BiocInstaller", biocinstallRepos)
+importFrom("BiocManager", repositories)
 
 importFrom("graph", ftM2graphNEL)
 

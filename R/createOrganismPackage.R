@@ -120,7 +120,7 @@
 ## suggests fields)
 .biocAnnPackages <- function(){
     availAnns <- as.data.frame(available.packages(
-                               contrib.url(biocinstallRepos()[["BioCann"]],
+                               contrib.url(repositories()[["BioCann"]],
                                "source")))
     as.character(availAnns[["Package"]])
 }
