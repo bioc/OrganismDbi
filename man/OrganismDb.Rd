@@ -188,10 +188,11 @@
     used to generate an \code{OrganismDb} based package.
     \item \link[OrganismDbi]{rangeBasedAccessors} for the range based methods
     used in extracting data from a \code{OrganismDb} object.
-    \item \link[GenomeInfoDb]{seqlevels} .
-    \item \link[GenomeInfoDb]{seqlengths} .
-    \item \link[GenomeInfoDb]{isCircular} .
-    \item \link[GenomeInfoDb]{genome} .    
+    \item{\link{GenomeInfoDb}}.
+    \item{\link{seqlevels}}.
+    \item{\link{seqlengths}}.
+    \item{\link{isCircular}}.
+    \item{\link{genome}}.
 }
 }
 

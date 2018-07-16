@@ -90,7 +90,7 @@
 \arguments{ 
   \item{x}{
     A \link{MultiDb} object. Except for the extractTranscriptSeqs
-  method.  In that case it's a \link[BSgenome]{BSgenome} object and the
+  method.  In that case it's a \link{BSgenome} object and the
   second argument is an \link{MultiDb} object.
   }
   \item{...}{
@@ -117,12 +117,12 @@
     \code{"cds_chrom"}, \code{"cds_strand"} and \code{"exon_rank"}.
   }
   \item{use.names}{Controls how to set the names of the returned
-    \link[GenomicRanges]{GRangesList} object.
+    \link{GRangesList} object.
     These functions return all the features of a given type (e.g.
     all the exons) grouped by another feature type (e.g. grouped by
-    transcript) in a \link[GenomicRanges]{GRangesList} object.
+    transcript) in a \link{GRangesList} object.
     By default (i.e. if \code{use.names} is \code{FALSE}), the
-    names of this \link[GenomicRanges]{GRangesList} object
+    names of this \link{GRangesList} object
     (aka the group names) are the internal ids of the features
     used for grouping (aka the grouping features), which are
     guaranteed to be unique.
@@ -192,27 +192,27 @@
   }
   \item{transcripts}{
     An object representing the exon ranges of each transcript to extract.
-    It must be a \link[GenomicRanges]{GRangesList} or \link{MultiDb}
-    object while the \code{x} is a \link[BSgenome]{BSgenome} object.
-    Internally, it's turned into a \link[GenomicRanges]{GRangesList}
+    It must be a \link{GRangesList} or \link{MultiDb}
+    object while the \code{x} is a \link{BSgenome} object.
+    Internally, it's turned into a \link{GRangesList}
     object with \code{\link{exonsBy}(transcripts, by="tx", use.names=TRUE)}.
   }
   \item{strand}{
-    Only supported when \code{x} is a \link[Biostrings]{DNAString} object.
+    Only supported when \code{x} is a \link{DNAString} object.
 
-    Can be an atomic vector, a factor, or an \link[S4Vectors]{Rle} object,
+    Can be an atomic vector, a factor, or an \link{Rle} object,
     in which case it indicates the strand of each transcript (i.e. all the
     exons in a transcript are considered to be on the same strand).
-    More precisely: it's turned into a factor (or factor-\link[S4Vectors]{Rle})
+    More precisely: it's turned into a factor (or factor-\link{Rle})
     that has the "standard strand levels" (this is done by calling the
     \code{\link[BiocGenerics]{strand}} function on it). Then it's recycled
-    to the length of \link[IRanges]{IntegerRangesList} object
+    to the length of \link{IntegerRangesList} object
     \code{transcripts} if needed. In the resulting object, the i-th element
     is interpreted as the strand of all the exons in the i-th transcript.
 
     \code{strand} can also be a list-like object, in which case it indicates
     the strand of each exon, individually. Thus it must have the same
-    \emph{shape} as \link[IRanges]{IntegerRangesList} object \code{transcripts}
+    \emph{shape} as \link{IntegerRangesList} object \code{transcripts}
     (i.e. same length plus \code{strand[[i]]} must have the same length
     as \code{transcripts[[i]]} for all \code{i}).
 
@@ -222,7 +222,7 @@
   \item{genes}{
     An object containing the locations (i.e. chromosome name, start, end, and
     strand) of the genes or transcripts with respect to the reference genome.
-    Only \link[GenomicRanges]{GenomicRanges} and \link{MultiDb} objects
+    Only \link{GenomicRanges} and \link{MultiDb} objects
     are supported at the moment. If the latter, the gene locations are obtained
     by calling the \code{\link{genes}} function on the \link{MultiDb}
     object internally.
@@ -250,14 +250,14 @@
 
 \seealso{
   \itemize{
-    \item \link[OrganismDbi]{MultiDb-class} for how to use the
+    \item \link{MultiDb-class} for how to use the
           simple "select" interface to extract information from a
           \code{MultiDb} object.
     \item \link[GenomicFeatures]{transcripts} for the original
           \code{transcripts} method and related methods.
     \item \link[GenomicFeatures]{transcriptsBy} for the original
           \code{transcriptsBy} method and related methods.
-	}
+  }
 }
 
 \examples{

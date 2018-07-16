@@ -8,7 +8,7 @@
   Map range coordinates between features in the transcriptome and
   genome (reference) space.
 
-  See \code{?\link[GenomicAlignments]{mapToAlignments}} in the 
+  See \code{?\link{mapToAlignments}} in the 
   \pkg{GenomicAlignments} package for mapping coordinates between 
   reads (local) and genome (reference) space using a CIGAR alignment.
 }
@@ -98,7 +98,7 @@
 
 \seealso{
   \itemize{
-    \item \link[GenomicFeatures]{mapToTranscripts} .
+    \item{\link{mapToTranscripts}}.
   }
 }
 
