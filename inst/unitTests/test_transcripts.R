@@ -18,7 +18,7 @@ test_compressMetadata <- function(){
     meta <- select(x, keys=as.character(mcols(txs)$tx_id), cols, "TXID") 
     f <- factor(meta[["TXID"]],levels=mcols(txs)[["tx_id"]])
     res <- OrganismDbi:::.compressMetadata(f, meta, "TXID")
-    checkTrue(class(res)== "DataFrame")
+    checkTrue(is(res, "DataFrame"))
     checkTrue(dim(res)[2] ==4)
     checkTrue(dim(res)[1] ==100)
     checkTrue(all(colnames(res) %in% cols))
@@ -31,7 +31,7 @@ test_combineMetadata <- function(){
     meta <- select(x, keys=as.character(mcols(txs)$tx_id), cols, "TXID") 
     res <- OrganismDbi:::.combineMetadata(txs,meta,avoidID="TXID",
                                           joinID="tx_id", columns=cols)
-    checkTrue(class(res)== "DataFrame")
+    checkTrue(is(res, "DataFrame"))
     checkTrue(dim(res)[2] ==4)
     checkTrue(dim(res)[1] ==100)
     checkTrue(all(colnames(res) %in% c(cols))) 
