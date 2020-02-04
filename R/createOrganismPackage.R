@@ -364,9 +364,9 @@ makeOrganismDbFromTxDb <- function(txdb, keytype=NA, orgdb=NA){
 makeOrganismDbFromUCSC <- function(genome="hg19",
                                    tablename="knownGene",
                                    transcript_ids=NULL,
-                                   circ_seqs=DEFAULT_CIRC_SEQS,
+                                   circ_seqs=NULL,
                                    url="http://genome.ucsc.edu/cgi-bin/",
-                     goldenPath_url="http://hgdownload.cse.ucsc.edu/goldenPath",
+                               goldenPath.url=getOption("UCSC.goldenPath.url"),
                                    miRBaseBuild=NA){
 
     ## So call the function to make that TxDb
@@ -375,7 +375,7 @@ makeOrganismDbFromUCSC <- function(genome="hg19",
                              transcript_ids=transcript_ids,
                              circ_seqs=circ_seqs,
                              url=url,
-                             goldenPath_url=goldenPath_url,
+                             goldenPath.url=goldenPath.url,
                              miRBaseBuild=miRBaseBuild)
     makeOrganismDbFromTxDb(txdb)
 }
@@ -383,7 +383,7 @@ makeOrganismDbFromUCSC <- function(genome="hg19",
 makeOrganismDbFromBiomart <- function(biomart="ENSEMBL_MART_ENSEMBL",
                                       dataset="hsapiens_gene_ensembl",
                                       transcript_ids=NULL,
-                                      circ_seqs=DEFAULT_CIRC_SEQS,
+                                      circ_seqs=NULL,
                                       filter="",
                                       id_prefix="ensembl_",
                                       host="www.ensembl.org",

@@ -15,7 +15,7 @@
 makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
                     dataset="hsapiens_gene_ensembl",
                     transcript_ids=NULL,
-                    circ_seqs=DEFAULT_CIRC_SEQS,
+                    circ_seqs=NULL,
                     filter="",
                     id_prefix="ensembl_",
                     host="www.ensembl.org",
@@ -123,8 +123,6 @@ makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
     \item The \code{\link[biomaRt]{listMarts}}, \code{\link[biomaRt]{useMart}},
           and \code{\link[biomaRt]{listDatasets}} functions in the
           \pkg{biomaRt} package.
-
-    \item \code{\link{DEFAULT_CIRC_SEQS}}.
 
     \item The \code{\link{supportedMiRBaseBuildValues}} function for
           listing all the possible values for the \code{miRBaseBuild}

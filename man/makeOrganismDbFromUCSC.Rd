@@ -15,9 +15,9 @@ makeOrganismDbFromUCSC(
         genome="hg19",
         tablename="knownGene",
         transcript_ids=NULL,
-        circ_seqs=DEFAULT_CIRC_SEQS,
+        circ_seqs=NULL,
         url="http://genome.ucsc.edu/cgi-bin/",
-        goldenPath_url="http://hgdownload.cse.ucsc.edu/goldenPath",
+        goldenPath.url=getOption("UCSC.goldenPath.url"),
         miRBaseBuild=NA)
 }
 \arguments{
@@ -35,7 +35,7 @@ makeOrganismDbFromUCSC(
     Otherwise it will say 'Full dataset: yes'.}
   \item{circ_seqs}{a character vector to list out which chromosomes
     should be marked as circular.}
-  \item{url,goldenPath_url}{use to specify the location of an
+  \item{url,goldenPath.url}{use to specify the location of an
     alternate UCSC Genome Browser.}
   \item{miRBaseBuild}{specify the string for the appropriate build
     Information from mirbase.db to use for microRNAs.  This can be
@@ -64,8 +64,6 @@ makeOrganismDbFromUCSC(
 
     \item \code{\link[rtracklayer]{ucscGenomes}} in the \pkg{rtracklayer}
           package.
-
-    \item \code{\link{DEFAULT_CIRC_SEQS}}.
 
     \item The \code{\link{supportedMiRBaseBuildValues}} function for
           listing all the possible values for the \code{miRBaseBuild}
