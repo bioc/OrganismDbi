@@ -489,9 +489,9 @@ setMethod(isActiveSeq, 'MultiDb',
 .updateTxDbSeqMultiDb <-function(x, value){
     ## This will change the val in 'x' as well...
     txdb <- getTxDbIfAvailable(x)
-    if(!is.na(txdb)){ ## will be NA if there isn't one.
+    if (is(txdb, "TxDb")) { ## will be NA if there isn't one.
         isActiveSeq(txdb) <- value
-    }else{
+    } else {
         stop('This object does not contain a TxDb object')
     }
     x

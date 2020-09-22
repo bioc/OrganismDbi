@@ -301,9 +301,10 @@ makeOrganismPackage <- function(pkgname,
 ## Also also: the name should not be made 'special' in the case where makeOrganismDbFromTxDb is called as a helper function from within makeOrganismDbFromUCSC or makeOrganismDbFromBiomart.
 
 makeOrganismDbFromTxDb <- function(txdb, keytype=NA, orgdb=NA){
-    if(class(txdb) != 'TxDb') stop("'txdb' must be A TxDb object")
-    if(class(orgdb) != 'OrgDb' && !is.na(orgdb)) stop(
-              "'orgdb' must be an OrgDb object or NA")
+    if (!is(txdb, "TxDb"))
+        stop("'txdb' must be a TxDb object")
+    if(!is(orgdb, "OrgDb") && !is.na(orgdb))
+        stop("'orgdb' must be an OrgDb object or NA")
     if (!isSingleStringOrNA(keytype))
         stop("'keytype' must be a single string or NA")
     
@@ -317,7 +318,7 @@ makeOrganismDbFromTxDb <- function(txdb, keytype=NA, orgdb=NA){
     taxId <- taxonomyId(txdb)
     
     ## Then get the name and valued for the OrgDb object
-    if(is.na(orgdb)){
+    if (!is(orgdb, "OrgDb") && is.na(orgdb)){
         orgdbName <- OrganismDbi:::.taxIdToOrgDbName(taxId)
         orgdb <- OrganismDbi:::.taxIdToOrgDb(taxId)
         assign(orgdbName, orgdb, .GlobalEnv)
