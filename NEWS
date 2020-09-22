@@ -1,3 +1,11 @@
+CHANGES IN VERSION 1.32.0
+------------------------
+
+BUG FIXES
+
+    o (v. 1.31.1) Load OrganismDb objects even if not on search
+      path. See https://support.bioconductor.org/p/134141/
+
 CHANGES IN VERSION 1.18.0
 ------------------------
 

@@ -4,14 +4,24 @@
 ## x is an OrgDb object, and str is the name we want made into an object...
 .makeReal <- function(x, str){
     resource <- x@resources[names(x@resources) %in% str]
-    if(length(resource)==1){
-        if(resource != ""){
+    if (length(resource)==1) {
+        if (resource != "") {
             res <- loadDb(resource)
-        }else{ ## otherwise use the local name
-            res <- get(str)
+        } else { ## otherwise use the local name
+            res <- tryCatch({
+                get(str, envir = asNamespace(str))
+            }, error = function(err) {
+                ## original implementation, but fails if 'str' (e.g.,
+                ## 'GO.db') is from a package not attached to the
+                ## search path. Are all 'str' always from packages,
+                ## with names following the convention str::str? We'll
+                ## leave this as a fall-back for user-defined objects
+                ## 'str' available only on the search path.
+                get(str)
+            })
         }
-    }else{
-        stop(paste0("object does not contain resource named ",str) )
+    } else {
+        stop("object does not contain resource named '", str, "'")
     }
     res
 }
