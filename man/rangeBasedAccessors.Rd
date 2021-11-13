@@ -16,7 +16,6 @@
 \alias{asBED,MultiDb-method}
 \alias{asGFF,MultiDb-method}
 
-\alias{disjointExons,MultiDb-method}
 \alias{microRNAs,MultiDb-method}
 \alias{tRNAs,MultiDb-method}
 \alias{promoters,MultiDb-method}
@@ -67,8 +66,6 @@
 \S4method{asBED}{MultiDb}(x)
 \S4method{asGFF}{MultiDb}(x)
 
-\S4method{disjointExons}{MultiDb}(x, aggregateGenes=FALSE, 
-              includeTranscripts=TRUE, ...) 
 \S4method{microRNAs}{MultiDb}(x)
 \S4method{tRNAs}{MultiDb}(x)
 \S4method{promoters}{MultiDb}(x, upstream=2000, downstream=200, use.names=TRUE, ...)
@@ -154,17 +151,6 @@
     For \code{promoters} : An \code{integer(1)} value indicating the 
     number of bases downstream from the transcription start site. For 
     additional details see \code{?`promoters,GRanges-method`}.
-  }
-  \item{aggregateGenes}{
-    For \code{disjointExons} : A \code{logical}. When \code{FALSE}
-    (default) exon fragments that overlap multiple genes are dropped.
-    When \code{TRUE}, all fragments are kept and the \code{gene_id}
-    metadata column includes all gene ids that overlap the exon fragment.
-  }
-  \item{includeTranscripts}{
-    For \code{disjointExons} : A \code{logical}. When \code{TRUE}
-    (default) a \code{tx_name} metadata column is included that 
-    lists all transcript names that overlap the exon fragment. 
   }
   \item{y}{For \code{distance}, a \link{MultiDb} instance. The
    \code{id} is used to extract ranges from the \link{MultiDb}

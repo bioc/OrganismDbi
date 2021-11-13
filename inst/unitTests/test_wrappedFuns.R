@@ -42,11 +42,6 @@ test_asGFF <- function(){
     .testPopulatedGranges(res)
 }
 
-test_disjointExons <- function(){
-    res <- disjointExons(x)
-    .testPopulatedGranges(res)
-}
-
 test_distance <- function(){
     gr <- GRanges(c("chr19", "chr20"),
                   IRanges(c(60000000, 40000000),  width=200))

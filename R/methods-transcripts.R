@@ -435,11 +435,6 @@ setMethod(promoters, 'MultiDb',
               promoters(getTxDbIfAvailable(x), upstream,
                         downstream, ...)})
 
-setMethod(disjointExons, 'MultiDb',
-          function(x, aggregateGenes=FALSE, includeTranscripts=TRUE, ...){
-              disjointExons(getTxDbIfAvailable(x), aggregateGenes,
-                        includeTranscripts,  ...)})
-
 setMethod(microRNAs, 'MultiDb',
           function(x){microRNAs(getTxDbIfAvailable(x))})
 
