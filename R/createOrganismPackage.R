@@ -18,8 +18,7 @@
       '6239'='org.Ce.eg.db',
       '8355'='org.Xl.eg.db',
       '559292'='org.Sc.sgd.db',
-      '7955'='org.Dr.eg.db',
-      '36329'='org.Pf.plasmo.db')
+      '7955'='org.Dr.eg.db')
 }
  
 .taxIdToOrgDb <- function(taxid) {

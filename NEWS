@@ -3,6 +3,7 @@ CHANGES IN VERSION 1.32.0
 
 BUG FIXES
 
+    o (v. 1.31.2) Remove deprecated org.Pf.plasmo.db info
     o (v. 1.31.1) Load OrganismDb objects even if not on search
       path. See https://support.bioconductor.org/p/134141/
 
