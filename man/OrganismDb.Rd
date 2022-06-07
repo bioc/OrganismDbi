@@ -91,7 +91,7 @@
 
       Use of the \code{fuzzy} argument will toggle fuzzy matching to
       TRUE or FALSE.  If \code{pattern} is not used, fuzzy is ignored.
-    }    
+    }
     \item{}{
       \code{columns(x)}:
       shows which kinds of data can be returned for the
@@ -164,7 +164,7 @@
     }
     \item{}{
       \code{TxDb(x)}: Accessor for the TxDb object of a
-      \code{OrganismDb} object.  
+      \code{OrganismDb} object.
     }
     \item{}{
       \code{TxDb(x) <- value}: Allows you to swap in an alternative TxDb
@@ -174,13 +174,13 @@
       the saved version right into your \code{OrganismDb} object.
     }
 
-    
+
   }
 }
 
 \author{Marc Carlson}
 
-\seealso{ 
+\seealso{
   \itemize{
     \item \link[AnnotationDbi]{AnnotationDb-class} for more descriptsion
     of methods \code{select},\code{keytypes},\code{keys} and \code{columns}.
@@ -188,11 +188,14 @@
     used to generate an \code{OrganismDb} based package.
     \item \link[OrganismDbi]{rangeBasedAccessors} for the range based methods
     used in extracting data from a \code{OrganismDb} object.
-    \item{\link{GenomeInfoDb}}.
-    \item{\link{seqlevels}}.
-    \item{\link{seqlengths}}.
-    \item{\link{isCircular}}.
-    \item{\link{genome}}.
+    \item{Topics in the \code{GenomeInfoDb} package: \itemize{
+        \item{\link{seqinfo}}
+        \item{\link{seqlevels}}
+        \item{\link{seqlengths}}
+        \item{\link{isCircular}}
+        \item{\link{genome}}
+        }
+    }
 }
 }
 

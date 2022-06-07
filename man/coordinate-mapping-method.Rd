@@ -8,15 +8,15 @@
   Map range coordinates between features in the transcriptome and
   genome (reference) space.
 
-  See \code{?\link{mapToAlignments}} in the 
-  \pkg{GenomicAlignments} package for mapping coordinates between 
-  reads (local) and genome (reference) space using a CIGAR alignment.
+  See \code{mapToAlignments} in the \pkg{GenomicAlignments} package
+  for mapping coordinates between reads (local) and genome (reference)
+  space using a CIGAR alignment.
 }
 
 \usage{
 \S4method{mapToTranscripts}{ANY,MultiDb}(x, transcripts,
           ignore.strand = TRUE,
-          extractor.fun = GenomicFeatures::transcripts, ...) 
+          extractor.fun = GenomicFeatures::transcripts, ...)
 }
 
 \arguments{
@@ -49,10 +49,10 @@
       \item{intronsByTranscript}
       \item{fiveUTRsByTranscript}
       \item{threeUTRsByTranscript}
-    }    
+    }
   }
   \item{\dots}{
-    Additional arguments passed to \code{extractor.fun} functions. 
+    Additional arguments passed to \code{extractor.fun} functions.
   }
 }
 
@@ -61,7 +61,7 @@
     \item{\code{mapToTranscripts}}{
       The genomic range in \code{x} is mapped to the local position in the
       \code{transcripts} ranges. A successful mapping occurs when \code{x}
-      is completely within the \code{transcripts} range, equivalent to: 
+      is completely within the \code{transcripts} range, equivalent to:
       \preformatted{
       findOverlaps(..., type="within")
       }
@@ -79,19 +79,19 @@
   An object the same class as \code{x}.
 
   Parallel methods return an object the same shape as \code{x}. Ranges that
-  cannot be mapped (out of bounds or strand mismatch) are returned as 
+  cannot be mapped (out of bounds or strand mismatch) are returned as
   zero-width ranges starting at 0 with a seqname of "UNMAPPED".
 
   Non-parallel methods return an object that varies in length similar to a
   Hits object. The result only contains mapped records, strand mismatch
-  and out of bound ranges are not returned. \code{xHits} and 
-  \code{transcriptsHits} metadata columns indicate the elements of \code{x} 
+  and out of bound ranges are not returned. \code{xHits} and
+  \code{transcriptsHits} metadata columns indicate the elements of \code{x}
   and \code{transcripts} used in the mapping.
 
   When present, names from \code{x} are propagated to the output. When
-  mapping to transcript coordinates, seqlevels of the output are the names 
+  mapping to transcript coordinates, seqlevels of the output are the names
   on the \code{transcripts} object; most often these will be transcript
-  names. When mapping to the genome, seqlevels of the output are the seqlevels 
+  names. When mapping to the genome, seqlevels of the output are the seqlevels
   of \code{transcripts} which are usually chromosome names.
 }
 
@@ -111,9 +111,9 @@
 ## ---------------------------------------------------------------------
 
 library(Homo.sapiens)
-x <- GRanges("chr5", 
-             IRanges(c(173315331,174151575), width=400, 
-                     names=LETTERS[1:2])) 
+x <- GRanges("chr5",
+             IRanges(c(173315331,174151575), width=400,
+                     names=LETTERS[1:2]))
 
 ## Map to transcript coordinates:
 mapToTranscripts(x, Homo.sapiens)

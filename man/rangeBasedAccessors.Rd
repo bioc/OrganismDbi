@@ -84,11 +84,11 @@
 \S4method{isActiveSeq}{MultiDb}(x)
 }
 
-\arguments{ 
+\arguments{
   \item{x}{
-    A \link{MultiDb} object. Except for the extractTranscriptSeqs
-  method.  In that case it's a \link{BSgenome} object and the
-  second argument is an \link{MultiDb} object.
+    A \link{MultiDb} object, except in the \link{extractTranscriptSeqs}
+  method where it is a \code{BSgenome} object and the
+  second argument is a \link{MultiDb} object.
   }
   \item{...}{
     Arguments to be passed to or from methods.
@@ -148,8 +148,8 @@
     additional details see \code{?`promoters,GRanges-method`}.
   }
   \item{downstream}{
-    For \code{promoters} : An \code{integer(1)} value indicating the 
-    number of bases downstream from the transcription start site. For 
+    For \code{promoters} : An \code{integer(1)} value indicating the
+    number of bases downstream from the transcription start site. For
     additional details see \code{?`promoters,GRanges-method`}.
   }
   \item{y}{For \code{distance}, a \link{MultiDb} instance. The
@@ -158,9 +158,9 @@
   }
   \item{id}{A \code{character} vector the same length as \code{x}.
     The \code{id} must be identifiers in the \link{MultiDb} object.
-    \code{type} indicates what type of identifier \code{id} is. 
+    \code{type} indicates what type of identifier \code{id} is.
   }
-  \item{type}{A \code{character(1)} describing the \code{id}. 
+  \item{type}{A \code{character(1)} describing the \code{id}.
     Must be one of \sQuote{gene}, \sQuote{tx}, \sQuote{exon} or
     \sQuote{cds}.
   }
@@ -184,7 +184,7 @@
     object with \code{\link{exonsBy}(transcripts, by="tx", use.names=TRUE)}.
   }
   \item{strand}{
-    Only supported when \code{x} is a \link{DNAString} object.
+    Only supported when \code{x} is a \code{DNAString} object.
 
     Can be an atomic vector, a factor, or an \link{Rle} object,
     in which case it indicates the strand of each transcript (i.e. all the
@@ -225,7 +225,7 @@
 
 \details{
   These are the range based functions for extracting transcript information
-  from a \link{MultiDb} object. 
+  from a \link{MultiDb} object.
 }
 
 \value{ a GRanges or GRangesList object }
