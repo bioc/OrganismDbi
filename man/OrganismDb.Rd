@@ -189,11 +189,11 @@
     \item \link[OrganismDbi]{rangeBasedAccessors} for the range based methods
     used in extracting data from a \code{OrganismDb} object.
     \item{Topics in the \code{GenomeInfoDb} package: \itemize{
-        \item{\link{seqinfo}}
-        \item{\link{seqlevels}}
-        \item{\link{seqlengths}}
-        \item{\link{isCircular}}
-        \item{\link{genome}}
+        \item{\code{seqinfo}}
+        \item{\code{seqlevels}}
+        \item{\code{seqlengths}}
+        \item{\code{isCircular}}
+        \item{\code{genome}}
         }
     }
 }

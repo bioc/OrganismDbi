@@ -179,7 +179,7 @@
   \item{transcripts}{
     An object representing the exon ranges of each transcript to extract.
     It must be a \link{GRangesList} or \link{MultiDb}
-    object while the \code{x} is a \link{BSgenome} object.
+    object while the \code{x} is a \code{BSgenome} object.
     Internally, it's turned into a \link{GRangesList}
     object with \code{\link{exonsBy}(transcripts, by="tx", use.names=TRUE)}.
   }
