@@ -160,7 +160,7 @@ gd <- list(
 
 So this `data.frame` indicates both which packages are connected to each other,
 and also what these connections are using for foreign keys. Once this is
-finished, we just have to call the `makeOrganism` package function
+finished, we just have to call the `makeOrganismPackage` function
 to finish the task.
 
 ```{r makeOrganismPackage, eval = FALSE}
@@ -178,7 +178,7 @@ makeOrganismPackage(
 )
 ```
 
-`makeOrganism` package will then generate a lightweight package
+`makeOrganismPackage` will then generate a lightweight package
 that you can install. This package will not contain all the data that it refers
 to, but will instead depend on the packages that were referred to in the
 `data.frame`. Because the end result will be a package that treats all the data
