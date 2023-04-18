@@ -7,17 +7,30 @@ Description: The package enables a simple unified interface to several
 	select methods.
 Version: 1.41.0
 Encoding: UTF-8
-Author: Marc Carlson, Hervé Pagès, Martin Morgan, Valerie Obenchain
-Maintainer: Bioconductor Package Maintainer <maintainer@bioconductor.org>
+Authors@R: c(
+	person("Marc", "Carlson", role = "aut"), 
+	person("Hervé", "Pagès", role = "aut"), 
+	person("Martin", "Morgan", role = "aut"), 
+	person("Valerie", "Obenchain", role = "aut"), 
+    	person("Aliyu Atiku Mustapha", role = "ctb",
+        comment = "Converted 'OrganismDbi' vignette from Sweave to 
+	RMarkdown / HTML."
+    ),
+    person("Bioconductor Package Maintainer",
+        role = "cre",
+        email = "maintainer@bioconductor.org"
+    ))
 Depends: R (>= 2.14.0), methods, BiocGenerics (>= 0.15.10),
         AnnotationDbi (>= 1.33.15), GenomicFeatures (>= 1.39.4)
 Imports: Biobase, BiocManager, GenomicRanges (>= 1.31.13), graph,
         IRanges, RBGL, DBI, S4Vectors (>= 0.9.25), stats
 Suggests: Homo.sapiens, Rattus.norvegicus,
         BSgenome.Hsapiens.UCSC.hg19, AnnotationHub, FDb.UCSC.tRNAs,
-        mirbase.db, rtracklayer, biomaRt, RUnit, RMariaDB
+        mirbase.db, rtracklayer, biomaRt, RUnit, RMariaDB, BiocStyle, 
+	knitr
 Collate: AllGenerics.R AllClasses.R methods-select.R
         methods-transcripts.R createOrganismPackage.R seqinfo.R
         test_OrganismDbi_package.R
 License: Artistic-2.0
 biocViews: Annotation, Infrastructure
+VignetteBuilder: knitr
