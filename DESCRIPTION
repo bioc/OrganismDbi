@@ -5,21 +5,20 @@ Description: The package enables a simple unified interface to several
 	annotation packages each of which has its own schema by taking
 	advantage of the fact that each of these packages implements a 
 	select methods.
-Version: 1.45.0
+Version: 1.45.1
 Encoding: UTF-8
 Authors@R: c(
-	person("Marc", "Carlson", role = "aut"), 
-	person("Hervé", "Pagès", role = "aut"), 
-	person("Martin", "Morgan", role = "aut"), 
-	person("Valerie", "Obenchain", role = "aut"), 
+	person("Marc", "Carlson", role = "aut"),
+	person("Martin", "Morgan", role = "aut"),
+	person("Valerie", "Obenchain", role = "aut"),
     	person("Aliyu Atiku Mustapha", role = "ctb",
                 comment = "Converted 'OrganismDbi' vignette from Sweave to RMarkdown / HTML."),
         person("Bioconductor Package Maintainer", role = "cre",
                 email = "maintainer@bioconductor.org"))
-Depends: R (>= 2.14.0), methods, BiocGenerics (>= 0.15.10),
+Depends: R (>= 2.14.0), BiocGenerics (>= 0.15.10),
         AnnotationDbi (>= 1.33.15), GenomicFeatures (>= 1.39.4)
-Imports: Biobase, BiocManager, GenomicRanges (>= 1.31.13), graph,
-        IRanges, RBGL, DBI, S4Vectors (>= 0.9.25), stats
+Imports: methods, utils, stats, DBI, BiocManager, Biobase, graph, RBGL,
+	S4Vectors, IRanges, GenomicRanges (>= 1.31.13), txdbmaker
 Suggests: Homo.sapiens, Rattus.norvegicus,
         BSgenome.Hsapiens.UCSC.hg19, AnnotationHub, FDb.UCSC.tRNAs,
         mirbase.db, rtracklayer, biomaRt, RUnit, RMariaDB, BiocStyle, 

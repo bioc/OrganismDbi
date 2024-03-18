@@ -35,7 +35,8 @@ makeOrganismDbFromUCSC(
     Otherwise it will say 'Full dataset: yes'.}
   \item{circ_seqs}{a character vector to list out which chromosomes
     should be marked as circular.}
-  \item{url,goldenPath.url}{use to specify the location of an
+  \item{url}{Deprecated (will be ignored).}
+  \item{goldenPath.url}{use to specify the location of an
     alternate UCSC Genome Browser.}
   \item{miRBaseBuild}{specify the string for the appropriate build
     Information from mirbase.db to use for microRNAs.  This can be

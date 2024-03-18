@@ -54,7 +54,7 @@ setMethod("TxDb", "OrganismDb", function(x, ...){.getTxDb(x)})
     if(class(value) != 'TxDb') stop('Replacement value must be a TxDb object.')
     
     ## 1st get the current TxDbs name
-    txDbName <- OrganismDbi:::.lookupDbNameFromKeytype(x, 'TXID')
+    txDbName <- .lookupDbNameFromKeytype(x, 'TXID')
     ## we will use a generated name for internals when user does this.
     newTxDbName <- makePackageName(value)
     
@@ -68,7 +68,7 @@ setMethod("TxDb", "OrganismDb", function(x, ...){.getTxDb(x)})
     names(resources)[names(resources) %in% txDbName] <- newTxDbName
     ## 3) rebuild (which should populate any slots etc.)
     graphInfo <- list(graphData=gd, resources=resources)
-    x <- OrganismDbi:::OrganismDb(graphInfo=graphInfo)
+    x <- OrganismDb(graphInfo=graphInfo)
     ## then return the new MultiDb object.
     x
 }

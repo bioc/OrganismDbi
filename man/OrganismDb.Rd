@@ -63,13 +63,11 @@
   In the code snippets below, \code{x} is a OrganismDb object.
 
   \describe{
-    \item{}{
-      \code{keytypes(x)}:
+    \item{\code{keytypes(x)}:}{
       allows the user to discover which keytypes can be passed in to
       \code{select} or \code{keys} and the \code{keytype} argument.
     }
-    \item{}{
-      \code{keys(x, keytype, pattern, column, fuzzy)}: Return keys for
+    \item{\code{keys(x, keytype, pattern, column, fuzzy)}:}{ Return keys for
       the database contained in the \link{TxDb} object .
 
       The \code{keytype} argument specifies the kind of keys that will
@@ -92,20 +90,17 @@
       Use of the \code{fuzzy} argument will toggle fuzzy matching to
       TRUE or FALSE.  If \code{pattern} is not used, fuzzy is ignored.
     }
-    \item{}{
-      \code{columns(x)}:
+    \item{\code{columns(x)}:}{
       shows which kinds of data can be returned for the
       \code{OrganismDb} object.
     }
-    \item{}{
-      \code{select(x, keys, columns, keytype)}:
+    \item{\code{select(x, keys, columns, keytype)}:}{
       When all the appropriate arguments are specifiedm \code{select}
       will retrieve the matching data as a data.frame based on
       parameters for selected \code{keys} and \code{columns} and
       \code{keytype} arguments.
     }
-    \item{}{
-      \code{mapIds(x, keys, columns, keytype, ..., multiVals)}:
+    \item{\code{mapIds(x, keys, columns, keytype, ..., multiVals)}:}{
       When all the appropriate arguments are specifiedm \code{mapIds}
       will retrieve the matching data as a vector or list based on
       parameters for selected \code{keys} and \code{columns} and
@@ -122,9 +117,8 @@
 	}
       }
     }
-    \item{}{
-      \code{selectByRanges(x, ranges, columns, overlaps,
-      ignore.strand)}: When all the appropriate arguments are specified,
+    \item{\code{selectByRanges(x, ranges, columns, overlaps,
+      ignore.strand)}:}{ When all the appropriate arguments are specified,
       \code{selectByRanges} will return an annotated GRanges object that
       has been generated based on what you passed in to the ranges
       argument and whether that overlapped with what you specified in
@@ -146,8 +140,7 @@
       Finally, the ignore.strand argument is provided to indicate
       whether or not findOverlaps should ignore or respect the strand.
     }
-    \item{}{
-      \code{selectRangesById(x, keys, columns, keytype, feature)}: When
+    \item{\code{selectRangesById(x, keys, columns, keytype, feature)}:}{ When
       all the appropriate arguments are specified,
       \code{selectRangesById} will return a GRangesList object that
       correspond to gene models GRanges for the keys that you specify
@@ -158,16 +151,13 @@
       the list.  Extra data can also be returned in the mcols values for
       those GRanges by using the columns argument.
     }
-    \item{}{
-      \code{resources(x)}: shows where the db files are for resources
+    \item{\code{resources(x)}:}{ shows where the db files are for resources
       that are used to store the data for the \code{OrganismDb} object.
     }
-    \item{}{
-      \code{TxDb(x)}: Accessor for the TxDb object of a
+    \item{\code{TxDb(x)}:}{ Accessor for the TxDb object of a
       \code{OrganismDb} object.
     }
-    \item{}{
-      \code{TxDb(x) <- value}: Allows you to swap in an alternative TxDb
+    \item{\code{TxDb(x) <- value}:}{ Allows you to swap in an alternative TxDb
       for a given \code{OrganismDb} object.  This is most often useful
       when combined with \code{saveDb(TxDb, file)}, which returns the
       saved TxDb, so that you can save a TxDb to disc and then assign
@@ -234,4 +224,3 @@ taxonomyId(Homo.sapiens)
 ##extract the resources
 resources(Homo.sapiens)
 }
-

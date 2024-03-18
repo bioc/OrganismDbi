@@ -318,8 +318,8 @@ makeOrganismDbFromTxDb <- function(txdb, keytype=NA, orgdb=NA){
 
     ## Then get the name and valued for the OrgDb object
     if (!is(orgdb, "OrgDb") && is.na(orgdb)){
-        orgdbName <- OrganismDbi:::.taxIdToOrgDbName(taxId)
-        orgdb <- OrganismDbi:::.taxIdToOrgDb(taxId)
+        orgdbName <- .taxIdToOrgDbName(taxId)
+        orgdb <- .taxIdToOrgDb(taxId)
         assign(orgdbName, orgdb, .GlobalEnv)
     }else{
         org <- metadata(orgdb)[metadata(orgdb)$name=='ORGANISM',2]
@@ -345,18 +345,18 @@ makeOrganismDbFromTxDb <- function(txdb, keytype=NA, orgdb=NA){
 
     #############################################################
     ## Process and then test the graph Data
-    gd <- OrganismDbi:::.mungeGraphData(graphData)
-    OrganismDbi:::.testGraphData(gd)
+    gd <- .mungeGraphData(graphData)
+    .testGraphData(gd)
     allDeps <- unique(as.vector(gd[,1:2]))
-    biocPkgNames <- OrganismDbi:::.biocAnnPackages()
+    biocPkgNames <- .biocAnnPackages()
     deps <- allDeps[allDeps %in% biocPkgNames]
-    resources <- OrganismDbi:::.gentlyExtractDbFiles(gd, deps)
+    resources <- .gentlyExtractDbFiles(gd, deps)
     ## Check that the fkeys are really columns for the graphData
-    fkeys <- OrganismDbi:::.extractPkgsAndCols(gd)
-    OrganismDbi:::.testKeys(fkeys)
+    fkeys <- .extractPkgsAndCols(gd)
+    .testKeys(fkeys)
     ## Then make the object:
     graphInfo <- list(graphData=gd, resources=resources)
-    OrganismDbi:::OrganismDb(graphInfo=graphInfo)
+    OrganismDb(graphInfo=graphInfo)
 }
 
 
@@ -369,12 +369,14 @@ makeOrganismDbFromUCSC <- function(genome="hg19",
                                goldenPath.url=getOption("UCSC.goldenPath.url"),
                                    miRBaseBuild=NA){
 
+    if (!missing(url))
+        .Deprecated(msg="'url' argument is deprecated and was ignored")
+
     ## So call the function to make that TxDb
     txdb <- makeTxDbFromUCSC(genome=genome,
                              tablename=tablename,
                              transcript_ids=transcript_ids,
                              circ_seqs=circ_seqs,
-                             url=url,
                              goldenPath.url=goldenPath.url,
                              miRBaseBuild=miRBaseBuild)
     makeOrganismDbFromTxDb(txdb)
@@ -407,7 +409,7 @@ makeOrganismDbFromBiomart <- function(biomart="ENSEMBL_MART_ENSEMBL",
     makeOrganismDbFromTxDb(txdb, keytype=keytype, orgdb=orgdb)
 }
 
-## PROBLEM: OrganismDbi:::.extractDbFiles(gd, deps) requires (strictly) that all objects be available as files somewhere (no exceptions allowed)
+## PROBLEM: .extractDbFiles(gd, deps) requires (strictly) that all objects be available as files somewhere (no exceptions allowed)
 ## This means that when I get to this stage, with biomaRt, it fails because there is not a TxDb on disc...
 
 

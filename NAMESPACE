@@ -1,30 +1,33 @@
 import(methods)
+importFrom(utils, available.packages, contrib.url)
+importFrom(stats, setNames)
+
+importFrom(DBI, dbGetQuery)
+
+importFrom(BiocManager, repositories)
+importFrom(Biobase, createPackage)
 import(BiocGenerics)
-import(AnnotationDbi)
-import(GenomicFeatures)
 import(S4Vectors)
 import(IRanges)
+import(AnnotationDbi)
+import(GenomicRanges)
 
-importClassesFrom("graph", graphNEL)
+importFrom(GenomicFeatures, asBED, asGFF, cds, cdsBy, exons, exonsBy,
+                            extractUpstreamSeqs, fiveUTRsByTranscript,
+                            genes, intronsByTranscript, isActiveSeq,
+                            "isActiveSeq<-", mapToTranscripts, microRNAs,
+                            tRNAs, threeUTRsByTranscript, transcripts,
+                            transcriptsBy)
 
-importClassesFrom("GenomicRanges", "GenomicRanges")
+import(txdbmaker)
 
-importMethodsFrom("graph", edgeNames, edges, nodes, show, subGraph,
-                  union)
+importClassesFrom(graph, graphNEL)
+importFrom(graph, ftM2graphNEL)
+importMethodsFrom(graph, edgeNames, edges, nodes, show, subGraph,
+                         union)
 
-importMethodsFrom("RBGL", bfs)
+importMethodsFrom(RBGL, bfs)
 
-importMethodsFrom("DBI", dbGetQuery)
-
-importFrom("Biobase", createPackage)
-
-importFrom("BiocManager", repositories)
-
-importFrom("graph", ftM2graphNEL)
-
-importFrom("stats", setNames)
-
-importFrom("utils", available.packages, contrib.url)
 
 exportClasses("OrganismDb")
 
