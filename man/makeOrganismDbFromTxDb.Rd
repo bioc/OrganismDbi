@@ -55,6 +55,7 @@ makeOrganismDbFromTxDb(txdb, keytype=NA, orgdb=NA)
 
 \examples{
 \dontrun{
+library(txdbmaker)  # for makeTxDbFromUCSC()
 ## lets start with a txdb object
 transcript_ids <- c(
     "uc009uzf.1",
@@ -64,7 +65,7 @@ transcript_ids <- c(
     "uc009uzj.1"
 )
 txdbMouse <- makeTxDbFromUCSC(genome="mm9", tablename="knownGene",
-                          transcript_ids=transcript_ids)
+                              transcript_ids=transcript_ids)
 
 ## Using that, we can call our function to promote it to an OrgDb object:
 odb <- makeOrganismDbFromTxDb(txdb=txdbMouse)

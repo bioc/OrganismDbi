@@ -307,8 +307,14 @@ makeOrganismDbFromTxDb <- function(txdb, keytype=NA, orgdb=NA){
     if (!isSingleStringOrNA(keytype))
         stop("'keytype' must be a single string or NA")
 
+    if (!requireNamespace("txdbmaker", quietly=TRUE))
+        stop("Could not load package txdbmaker. Is it installed?\n\n  ",
+             wmsg("Note that the makeOrganismDbFromTxDb() function ",
+                  "requires the txdbmaker package. Please install it with:"),
+             "\n\n    BiocManager::install(\"txdbmaker\")")
+
     ## Then assign that object value to the appropriate name:
-    txdbName <- makePackageName(txdb)
+    txdbName <- txdbmaker::makePackageName(txdb)
     ## We temp assign to global scope
     ## (b/c you need it there if you 'generated' it)
     ## After we can remove it? (will be stored in the object)
@@ -372,13 +378,19 @@ makeOrganismDbFromUCSC <- function(genome="hg19",
     if (!missing(url))
         .Deprecated(msg="'url' argument is deprecated and was ignored")
 
+    if (!requireNamespace("txdbmaker", quietly=TRUE))
+        stop("Could not load package txdbmaker. Is it installed?\n\n  ",
+             wmsg("Note that the makeOrganismDbFromUCSC() function ",
+                  "requires the txdbmaker package. Please install it with:"),
+             "\n\n    BiocManager::install(\"txdbmaker\")")
+
     ## So call the function to make that TxDb
-    txdb <- makeTxDbFromUCSC(genome=genome,
-                             tablename=tablename,
-                             transcript_ids=transcript_ids,
-                             circ_seqs=circ_seqs,
-                             goldenPath.url=goldenPath.url,
-                             miRBaseBuild=miRBaseBuild)
+    txdb <- txdbmaker::makeTxDbFromUCSC(genome=genome,
+                                        tablename=tablename,
+                                        transcript_ids=transcript_ids,
+                                        circ_seqs=circ_seqs,
+                                        goldenPath.url=goldenPath.url,
+                                        miRBaseBuild=miRBaseBuild)
     makeOrganismDbFromTxDb(txdb)
 }
 
@@ -397,15 +409,21 @@ makeOrganismDbFromBiomart <- function(biomart="ENSEMBL_MART_ENSEMBL",
     if (!missing(port))
         warning("The 'port' argument is deprecated and will be ignored.")
 
+    if (!requireNamespace("txdbmaker", quietly=TRUE))
+        stop("Could not load package txdbmaker. Is it installed?\n\n  ",
+             wmsg("Note that the makeOrganismDbFromBiomart() function ",
+                  "requires the txdbmaker package. Please install it with:"),
+             "\n\n    BiocManager::install(\"txdbmaker\")")
+
     ## So call the function to make that TxDb
-    txdb <- makeTxDbFromBiomart(biomart=biomart,
-                                dataset=dataset,
-                                transcript_ids=transcript_ids,
-                                circ_seqs=circ_seqs,
-                                filter=filter,
-                                id_prefix=id_prefix,
-                                host=host,
-                                miRBaseBuild=miRBaseBuild)
+    txdb <- txdbmaker::makeTxDbFromBiomart(biomart=biomart,
+                                           dataset=dataset,
+                                           transcript_ids=transcript_ids,
+                                           circ_seqs=circ_seqs,
+                                           filter=filter,
+                                           id_prefix=id_prefix,
+                                           host=host,
+                                           miRBaseBuild=miRBaseBuild)
     makeOrganismDbFromTxDb(txdb, keytype=keytype, orgdb=orgdb)
 }
 
@@ -474,15 +492,21 @@ available.GTFsForTxDbs <- function() {
 makeHubGTFIntoTxDb <- function(ahg){
     if(length(ahg) > 1){
         stop('This function expects only one hub object at a time.')}
+
+    if (!requireNamespace("txdbmaker", quietly=TRUE))
+        stop("Could not load package txdbmaker. Is it installed?\n\n  ",
+             wmsg("Note that the makeHubGTFIntoTxDb() function ",
+                  "requires the txdbmaker package. Please install it with:"),
+             "\n\n    BiocManager::install(\"txdbmaker\")")
+
     ## get the available GTFs.
     ahgs <- available.GTFsForTxDbs()
     ## Is this one of those? If so, then make it happen
     if(names(ahg) %in%  names(ahgs)){
         txMeta <- data.frame(name='Data source', value='Ensembl GTF')
-        txdb <- makeTxDbFromGRanges(ahg[[1]],
-                                    metadata= txMeta,
-                                    taxonomyId=ahg$taxonomyid)
-        require(OrganismDbi)
+        txdb <- txdbmaker::makeTxDbFromGRanges(ahg[[1]],
+                                               metadata= txMeta,
+                                               taxonomyId=ahg$taxonomyid)
         ## requires using the 'ENSEMBL' keytype (for these TxDbs)
         ## odb <- makeOrganismDbFromTxDb(txdb, keytype='ENSEMBL')
         odb <- makeOrganismDbFromTxDb(txdb)

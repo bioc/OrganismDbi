@@ -52,11 +52,17 @@ setMethod("TxDb", "OrganismDb", function(x, ...){.getTxDb(x)})
     ## I need to find the TxDb in the object and replace it with
     ## the one in value
     if(class(value) != 'TxDb') stop('Replacement value must be a TxDb object.')
-    
+
+    if (!requireNamespace("txdbmaker", quietly=TRUE))
+        stop("Could not load package txdbmaker. Is it installed?\n\n  ",
+             wmsg("Note that the TxDb() method for OrganismDb objects ",
+                  "requires the txdbmaker package. Please install it with:"),
+             "\n\n    BiocManager::install(\"txdbmaker\")")
+
     ## 1st get the current TxDbs name
     txDbName <- .lookupDbNameFromKeytype(x, 'TXID')
     ## we will use a generated name for internals when user does this.
-    newTxDbName <- makePackageName(value)
+    newTxDbName <- txdbmaker::makePackageName(value)
     
     ## To modify the TxDb value rebuild the MultiDb
     ## 1) Extract/modify the keys/graphData

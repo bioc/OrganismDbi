@@ -57,8 +57,9 @@ test_testKeys <- function(){
 ##                         "uc001aal.1",
 ##                         "uc001aaq.2"
 ##                         )
-##     txdbInstant <- makeTxDbFromUCSC(genome="hg19", tablename="knownGene",
-##                                     transcript_ids=transcript_ids)
+##     txdbInstant <- txdbmaker::makeTxDbFromUCSC(genome="hg19",
+##                                                tablename="knownGene",
+##                                                transcript_ids=transcript_ids)
 ##     TxDb(odb) <- txdbInstant
 ##     res <- resources(odb)
 ##     checkTrue(res[['TxDb.Hsapiens.UCSC.hg19.knownGene']] == dbfile(txdbInstant))

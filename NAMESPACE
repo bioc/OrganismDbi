@@ -19,8 +19,6 @@ importFrom(GenomicFeatures, asBED, asGFF, cds, cdsBy, exons, exonsBy,
                             tRNAs, threeUTRsByTranscript, transcripts,
                             transcriptsBy)
 
-import(txdbmaker)
-
 importClassesFrom(graph, graphNEL)
 importFrom(graph, ftM2graphNEL)
 importMethodsFrom(graph, edgeNames, edges, nodes, show, subGraph,
