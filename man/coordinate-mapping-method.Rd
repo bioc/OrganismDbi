@@ -41,7 +41,6 @@
       \item{cds}
       \item{genes}
       \item{promoters}
-      \item{microRNAs}
       \item{tRNAs}
       \item{transcriptsBy}
       \item{exonsBy}

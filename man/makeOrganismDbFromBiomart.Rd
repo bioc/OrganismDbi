@@ -54,11 +54,7 @@ makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
     example, some BioMarts may have an attribute specified as
     \code{"ensembl_transcript_id"} whereas others have the same attribute
     specified as \code{"transcript_id"}. Defaults to \code{"ensembl_"}.}
-  \item{miRBaseBuild}{specify the string for the appropriate build
-    Information from mirbase.db to use for microRNAs.  This can be
-    learned by calling \code{supportedMiRBaseBuildValues}.  By default,
-    this value will be set to \code{NA}, which will inactivate the
-    \code{microRNAs} accessor.}
+  \item{miRBaseBuild}{This argument is defunct.}
   \item{keytype}{This indicates the kind of key that this database will
     use as a foreign key between it's TxDb object and it's OrgDb
     object. So basically whatever the column name is for the foreign key
@@ -125,12 +121,7 @@ makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
           and \code{\link[biomaRt]{listDatasets}} functions in the
           \pkg{biomaRt} package.
 
-    \item The \code{\link{supportedMiRBaseBuildValues}} function for
-          listing all the possible values for the \code{miRBaseBuild}
-          argument.
-
     \item The \link{OrganismDb} class.
-
   }
 }
 

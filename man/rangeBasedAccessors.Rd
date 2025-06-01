@@ -16,7 +16,7 @@
 \alias{asBED,MultiDb-method}
 \alias{asGFF,MultiDb-method}
 
-\alias{microRNAs,MultiDb-method}
+\alias{microRNAs}
 \alias{tRNAs,MultiDb-method}
 \alias{promoters,MultiDb-method}
 
@@ -66,7 +66,6 @@
 \S4method{asBED}{MultiDb}(x)
 \S4method{asGFF}{MultiDb}(x)
 
-\S4method{microRNAs}{MultiDb}(x)
 \S4method{tRNAs}{MultiDb}(x)
 \S4method{promoters}{MultiDb}(x, upstream=2000, downstream=200, use.names=TRUE, ...)
 

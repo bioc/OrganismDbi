@@ -441,9 +441,6 @@ setMethod(promoters, 'MultiDb',
               promoters(getTxDbIfAvailable(x), upstream,
                         downstream, ...)})
 
-setMethod(microRNAs, 'MultiDb',
-          function(x){microRNAs(getTxDbIfAvailable(x))})
-
 setMethod(tRNAs, 'MultiDb',
           function(x){tRNAs(getTxDbIfAvailable(x))})
 

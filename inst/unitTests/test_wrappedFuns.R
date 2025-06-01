@@ -9,11 +9,6 @@ x <- Homo.sapiens
         checkTrue(class(res) == "GRanges"))
 }
 
-test_microRNAs <- function(){
-    res <- microRNAs(x)
-    .testPopulatedGranges(res)
-}
-
 require("FDb.UCSC.tRNAs")
 test_tRNAs <- function(){
     res <- tRNAs(x)

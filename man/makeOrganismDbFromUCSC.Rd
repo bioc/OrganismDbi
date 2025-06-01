@@ -38,11 +38,7 @@ makeOrganismDbFromUCSC(
   \item{url}{Deprecated (will be ignored).}
   \item{goldenPath.url}{use to specify the location of an
     alternate UCSC Genome Browser.}
-  \item{miRBaseBuild}{specify the string for the appropriate build
-    Information from mirbase.db to use for microRNAs.  This can be
-    learned by calling \code{supportedMiRBaseBuildValues}.  By default,
-    this value will be set to \code{NA}, which will inactivate the
-    \code{microRNAs} accessor.}
+  \item{miRBaseBuild}{This argument is defunct.}
 }
 \details{
   \code{makeOrganismDbFromUCSC} is a convenience function that feeds
@@ -66,12 +62,7 @@ makeOrganismDbFromUCSC(
     \item \code{\link[rtracklayer]{ucscGenomes}} in the \pkg{rtracklayer}
           package.
 
-    \item The \code{\link{supportedMiRBaseBuildValues}} function for
-          listing all the possible values for the \code{miRBaseBuild}
-          argument.
-
     \item The \link{OrganismDb} class.
-
   }
 }
 
