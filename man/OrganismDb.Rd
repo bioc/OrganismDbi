@@ -178,7 +178,7 @@
     used to generate an \code{OrganismDb} based package.
     \item \link[OrganismDbi]{rangeBasedAccessors} for the range based methods
     used in extracting data from a \code{OrganismDb} object.
-    \item{Topics in the \code{GenomeInfoDb} package: \itemize{
+    \item{Topics in the \code{Seqinfo} package: \itemize{
         \item{\code{seqinfo}}
         \item{\code{seqlevels}}
         \item{\code{seqlengths}}

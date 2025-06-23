@@ -10,6 +10,7 @@ import(BiocGenerics)
 import(S4Vectors)
 import(IRanges)
 import(AnnotationDbi)
+import(Seqinfo)
 import(GenomicRanges)
 
 importFrom(GenomicFeatures, asBED, asGFF, cds, cdsBy, exons, exonsBy,
