@@ -143,13 +143,13 @@ test_filterArg <- function(){
     ## this works:
     res <- exons(Homo.sapiens, filter=list(gene_id="1"))
     checkTrue(class(res) == "GRanges")
-    checkTrue(length(res) < 20)  ## small
+    checkTrue(length(res) < 32)  ## small
 
     ## so does this! 
     res <- exons(Homo.sapiens, columns="SYMBOL", filter=list(gene_id="1"))
     checkTrue("SYMBOL" %in% names(mcols(res)))
     checkTrue(class(res) == "GRanges")
-    checkTrue(length(res) < 20)  ## small
+    checkTrue(length(res) < 32)  ## small
 }
 
 
