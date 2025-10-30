@@ -16,7 +16,7 @@ import(GenomicRanges)
 importFrom(GenomicFeatures, asBED, asGFF, cds, cdsBy, exons, exonsBy,
                             extractUpstreamSeqs, fiveUTRsByTranscript,
                             genes, intronsByTranscript, isActiveSeq,
-                            "isActiveSeq<-", mapToTranscripts, microRNAs,
+                            "isActiveSeq<-", mapToTranscripts,
                             tRNAs, threeUTRsByTranscript, transcripts,
                             transcriptsBy)
 
@@ -77,7 +77,6 @@ export(getTxDbIfAvailable,  ## b/c the generic is here
 ##       saveDb,
        selectByRanges,
        selectRangesById,
-       microRNAs,  # re-exported from GenomicFeatures
        makeOrganismPackage,
        makeOrganismDbFromTxDb,
        makeOrganismDbFromUCSC,

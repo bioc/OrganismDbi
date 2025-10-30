@@ -16,7 +16,6 @@
 \alias{asBED,MultiDb-method}
 \alias{asGFF,MultiDb-method}
 
-\alias{microRNAs}
 \alias{tRNAs,MultiDb-method}
 \alias{promoters,MultiDb-method}
 
