@@ -368,15 +368,15 @@ makeOrganismDbFromTxDb <- function(txdb, keytype=NA, orgdb=NA){
 
 ## from UCSC
 makeOrganismDbFromUCSC <- function(genome="hg19",
-                                   tablename="knownGene",
-                                   transcript_ids=NULL,
-                                   circ_seqs=NULL,
-                                   url="http://genome.ucsc.edu/cgi-bin/",
-                               goldenPath.url=getOption("UCSC.goldenPath.url"),
-                                   miRBaseBuild=NA){
+                               tablename="knownGene",
+                               transcript_ids=NULL,
+                               circ_seqs=NULL,
+                               url="http://genome.ucsc.edu/cgi-bin/",
+                               goldenPath.url=getOption("UCSC.goldenPath.url"))
+{
 
     if (!missing(url))
-        .Deprecated(msg="'url' argument is deprecated and was ignored")
+        .Defunct(msg="The 'url' argument is defunct.")
 
     if (!requireNamespace("txdbmaker", quietly=TRUE))
         stop("Could not load package txdbmaker. Is it installed?\n\n  ",
@@ -389,8 +389,7 @@ makeOrganismDbFromUCSC <- function(genome="hg19",
                                         tablename=tablename,
                                         transcript_ids=transcript_ids,
                                         circ_seqs=circ_seqs,
-                                        goldenPath.url=goldenPath.url,
-                                        miRBaseBuild=miRBaseBuild)
+                                        goldenPath.url=goldenPath.url)
     makeOrganismDbFromTxDb(txdb)
 }
 
@@ -402,12 +401,11 @@ makeOrganismDbFromBiomart <- function(biomart="ENSEMBL_MART_ENSEMBL",
                                       id_prefix="ensembl_",
                                       host="https://www.ensembl.org",
                                       port,
-                                      miRBaseBuild=NA,
                                       keytype="ENSEMBL",
                                       orgdb = NA){
 
     if (!missing(port))
-        warning("The 'port' argument is deprecated and will be ignored.")
+        .Defunct(msg="The 'port' argument is defunct.")
 
     if (!requireNamespace("txdbmaker", quietly=TRUE))
         stop("Could not load package txdbmaker. Is it installed?\n\n  ",
@@ -422,8 +420,7 @@ makeOrganismDbFromBiomart <- function(biomart="ENSEMBL_MART_ENSEMBL",
                                            circ_seqs=circ_seqs,
                                            filter=filter,
                                            id_prefix=id_prefix,
-                                           host=host,
-                                           miRBaseBuild=miRBaseBuild)
+                                           host=host)
     makeOrganismDbFromTxDb(txdb, keytype=keytype, orgdb=orgdb)
 }
 

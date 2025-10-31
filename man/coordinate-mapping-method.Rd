@@ -1,5 +1,6 @@
 \name{mapToTranscripts}
 
+\alias{mapToTranscripts}
 \alias{mapToTranscripts,ANY,MultiDb-method}
 
 \title{Map range coordinates between transcripts and genome space}
@@ -56,22 +57,19 @@
 }
 
 \details{
-  \itemize{
-    \item{\code{mapToTranscripts}}{
-      The genomic range in \code{x} is mapped to the local position in the
-      \code{transcripts} ranges. A successful mapping occurs when \code{x}
-      is completely within the \code{transcripts} range, equivalent to:
-      \preformatted{
-      findOverlaps(..., type="within")
-      }
-      Transcriptome-based coordinates start counting at 1 at the beginning
-      of the \code{transcripts} range and return positions where \code{x}
-      was aligned. The seqlevels of the return object are taken from the
-      \code{transcripts} object and should be transcript names. In this
-      direction, mapping is attempted between all elements of \code{x} and
-      all elements of \code{transcripts}.
-    }
-  }
+  Mapping is attempted between all elements of \code{x} and all elements
+  of \code{transcripts}.
+
+  Each genomic range in \code{x} is mapped to the local position in the
+  \code{transcripts} ranges. A successful mapping occurs when the genomic
+  range in \code{x} is completely within the \code{transcripts} range,
+  equivalent to:
+  \preformatted{  findOverlaps(..., type="within")}
+
+  Transcriptome-based coordinates start counting at 1 at the beginning
+  of the \code{transcripts} range and return positions where the genomic
+  range in \code{x} was aligned. The seqlevels of the return object are
+  taken from the \code{transcripts} object and should be transcript names.
 }
 
 \value{

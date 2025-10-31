@@ -20,7 +20,6 @@ makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
                     id_prefix="ensembl_",
                     host="https://www.ensembl.org",
                     port,
-                    miRBaseBuild=NA,
                     keytype = "ENSEMBL",
                     orgdb = NA)
 
@@ -48,13 +47,11 @@ makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
   \item{filter}{Additional filters to use in the BioMart query. Must be
     a named list. An example is \code{filter=as.list(c(source="entrez"))}}
   \item{host}{The host URL of the BioMart. Defaults to www.ensembl.org.}
-  \item{port}{Deprecated: The port to use in the HTTP communication
-    with the host.}
+  \item{port}{This argument is defunct, don't use.}
   \item{id_prefix}{Specifies the prefix used in BioMart attributes. For
     example, some BioMarts may have an attribute specified as
     \code{"ensembl_transcript_id"} whereas others have the same attribute
     specified as \code{"transcript_id"}. Defaults to \code{"ensembl_"}.}
-  \item{miRBaseBuild}{This argument is defunct.}
   \item{keytype}{This indicates the kind of key that this database will
     use as a foreign key between it's TxDb object and it's OrgDb
     object. So basically whatever the column name is for the foreign key
