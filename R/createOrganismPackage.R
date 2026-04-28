@@ -371,13 +371,8 @@ makeOrganismDbFromUCSC <- function(genome="hg19",
                                tablename="knownGene",
                                transcript_ids=NULL,
                                circ_seqs=NULL,
-                               url="http://genome.ucsc.edu/cgi-bin/",
                                goldenPath.url=getOption("UCSC.goldenPath.url"))
 {
-
-    if (!missing(url))
-        .Defunct(msg="The 'url' argument is defunct.")
-
     if (!requireNamespace("txdbmaker", quietly=TRUE))
         stop("Could not load package txdbmaker. Is it installed?\n\n  ",
              wmsg("Note that the makeOrganismDbFromUCSC() function ",
@@ -400,13 +395,9 @@ makeOrganismDbFromBiomart <- function(biomart="ENSEMBL_MART_ENSEMBL",
                                       filter="",
                                       id_prefix="ensembl_",
                                       host="https://www.ensembl.org",
-                                      port,
                                       keytype="ENSEMBL",
-                                      orgdb = NA){
-
-    if (!missing(port))
-        .Defunct(msg="The 'port' argument is defunct.")
-
+                                      orgdb = NA)
+{
     if (!requireNamespace("txdbmaker", quietly=TRUE))
         stop("Could not load package txdbmaker. Is it installed?\n\n  ",
              wmsg("Note that the makeOrganismDbFromBiomart() function ",

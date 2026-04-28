@@ -16,7 +16,6 @@ makeOrganismDbFromUCSC(
         tablename="knownGene",
         transcript_ids=NULL,
         circ_seqs=NULL,
-        url="http://genome.ucsc.edu/cgi-bin/",
         goldenPath.url=getOption("UCSC.goldenPath.url"))
 }
 \arguments{
@@ -34,7 +33,6 @@ makeOrganismDbFromUCSC(
     Otherwise it will say 'Full dataset: yes'.}
   \item{circ_seqs}{a character vector to list out which chromosomes
     should be marked as circular.}
-  \item{url}{This argument is defunct, don't use.}
   \item{goldenPath.url}{use to specify the location of an
     alternate UCSC Genome Browser.}
 }

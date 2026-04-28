@@ -19,7 +19,6 @@ makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
                     filter="",
                     id_prefix="ensembl_",
                     host="https://www.ensembl.org",
-                    port,
                     keytype = "ENSEMBL",
                     orgdb = NA)
 
@@ -47,7 +46,6 @@ makeOrganismDbFromBiomart(biomart="ENSEMBL_MART_ENSEMBL",
   \item{filter}{Additional filters to use in the BioMart query. Must be
     a named list. An example is \code{filter=as.list(c(source="entrez"))}}
   \item{host}{The host URL of the BioMart. Defaults to www.ensembl.org.}
-  \item{port}{This argument is defunct, don't use.}
   \item{id_prefix}{Specifies the prefix used in BioMart attributes. For
     example, some BioMarts may have an attribute specified as
     \code{"ensembl_transcript_id"} whereas others have the same attribute
